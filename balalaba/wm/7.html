@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>【Kafka系列教程】088：Kafka Streams之概念——状态_外贸智能营销SaaS平台-贸管家</title>
+<meta name="keywords" content="" />
+<meta name="description" content="某些流处理应用程序不需要状态，这意味着消息的处理独立于所有其他消息的处理。然而，能够维护状态为复杂的流处理应用程序打开了许多可能性：您可以加入输入流，或分组和聚合数据记录。许多这样的有状态运算符是由Kafka Streams DSL.Kafka Streams提供了所谓的状态存储，流处理应用程序可以" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="http://balalaba.historyhots.com/skin/html/css/base.css" rel="stylesheet">
+<link href="http://balalaba.historyhots.com/skin/html/css/m.css" rel="stylesheet">
+<link href="http://balalaba.historyhots.com/skin/html/css/swiper.min.css" rel="stylesheet">
+<script src="http://balalaba.historyhots.com/skin/html/js/jquery-3.6.0.min.js" ></script>
+<script src="http://balalaba.historyhots.com/skin/html/js/comm.js"></script>
+<!---代码高亮-->
+<link href="http://balalaba.historyhots.com/skin/html/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://balalaba.historyhots.com/skin/html/SyntaxHighlighter/shCore.js"></script>
+<script type="text/javascript">
+ SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+<header>
+  <div class="topbar"> <a href="https://www.balalaba.com/" class="logo">贸管家</a>
+    <div class="search">
+      <form action="http://balalaba.historyhots.com/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="" type="submit">
+      </form>
+    </div>
+  </div>
+  <h2 id="mnavh"><span class="navicon"></span></h2>
+</header>
+<article>
+  <nav>
+    <div class="topnav">
+      <ul id="starlist">
+        <li><a href="http://balalaba.historyhots.com/">最新资讯</a></li>
+        <li><a href="http://balalaba.historyhots.com/tuijian/">推荐内容</a></li>
+        <li><a href="http://balalaba.historyhots.com/hot/">热门内容</a></li>
+<li><a href="http://balalaba.historyhots.com/wm/">外贸</a></li><li><a href="http://balalaba.historyhots.com/buy/">采购</a></li><li><a href="http://balalaba.historyhots.com/wen/">问答</a></li> 
+      </ul>
+    </div>
+    <em></em> </nav>
+  <div class="box_l">
+    <div class="weizhi"><a href="http://balalaba.historyhots.com/">首页</a>&nbsp; / &nbsp;<a href="http://balalaba.historyhots.com/wm/">外贸</a> / 【Kafka系列教程】088：Kafka Streams之概念——状态</div>
+    <div class="con_tit">
+      <h1>【Kafka系列教程】088：Kafka Streams之概念——状态</h1>
+      <div class="con_info"><span class="con_class">分类：<a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span> 
+        <time>2023-03-23 14:54:49</time>
+        <span class="con_link"><script src=http://balalaba.historyhots.com/e/public/ViewClick/?classid=1&id=7&addclick=1></script></span> </div>
+    </div>
+    <div class="content">
+<p>某些流处理应用程序不需要状态，这意味着消息的处理独立于所有其他消息的处理。然而，能够维护状态为复杂的流处理应用程序打开了许多可能性：您可以加入输入流，或分组和聚合数据记录。许多这样的有状态运算符是由<a href="https://kafka.apache.org/32/documentation/streams/developer-guide/dsl-api.html" rel="nofollow"><strong>Kafka Streams DSL</strong></a>.</p>
+<p>Kafka Streams提供了所谓的状态存储，流处理应用程序可以使用这些存储和查询数据。这是实现有状态操作时的重要能力。Kafka Streams中的每个任务都嵌入了一个或多个状态存储，这些状态存储可以通过API访问，以存储和查询处理所需的数据。这些状态存储可以是持久的键值存储、内存中的哈希映射或其他方便的数据结构。Kafka Streams为本地状态存储提供容错和自动恢复。</p>
+<p>Kafka Streams允许通过创建状态存储的流处理应用程序外部的方法、线程、进程或应用程序直接只读查询状态存储。这是通过称为交互式查询的功能提供的。所有存储都是命名的，交互式查询仅公开基础实现的读取操作。</p>
+<h4>参考引用</h4>
+<p>本系列归档至《跟老卫学Apache Kafka开发》&nbsp;<a href="https://github.com/waylau/apache-kafka-tutorial" rel="nofollow">https://github.com/waylau/apache-kafka-tutorial</a></p>    </div>
+<script>
+var paras = document.getElementsByTagName("pre");
+for ( var i=0;i<paras.length;i++ ) {
+    paras[i].setAttribute("class","brush:php;toolbar:false");     
+}
+</script>
+    <div class="con_tags"></div>
+    <div class="info-pre-next">
+      <p>上一篇：<a href='http://balalaba.historyhots.com/wm/2.html'>配置应用签名信息</a></p>
+      <p>下一篇：<a href='http://balalaba.historyhots.com/wm/8.html'>Leetcode 0406. 根据身高重建队列</a></p>
+    </div>
+    <div class="hot_news other_news">
+      <div class="side_title">
+        <h3>相关文章</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/wm/16.html" title="大型物联网平台如何来保障亿级设备安全连接上云？">大型物联网平台如何来保障亿级设备安全连接上云？</a></li><li><a href="http://balalaba.historyhots.com/wm/15.html" title="边缘计算：盘点100个知识点">边缘计算：盘点100个知识点</a></li><li><a href="http://balalaba.historyhots.com/wm/14.html" title="智能合约开发实战——元交易（Metatransaction），元交易合约的实现">智能合约开发实战——元交易（Metatransaction），元交易合约的实现</a></li><li><a href="http://balalaba.historyhots.com/wm/12.html" title="【Kafka系列教程】088：Kafka Streams之概念——状态">【Kafka系列教程】088：Kafka Streams之概念——状态</a></li><li><a href="http://balalaba.historyhots.com/wm/13.html" title="配置应用签名信息">配置应用签名信息</a></li><li><a href="http://balalaba.historyhots.com/wm/11.html" title="Leetcode 0406. 根据身高重建队列">Leetcode 0406. 根据身高重建队列</a></li><li><a href="http://balalaba.historyhots.com/wm/8.html" title="Leetcode 0406. 根据身高重建队列">Leetcode 0406. 根据身高重建队列</a></li><li><a href="http://balalaba.historyhots.com/wm/7.html" title="【Kafka系列教程】088：Kafka Streams之概念——状态">【Kafka系列教程】088：Kafka Streams之概念——状态</a></li><li><a href="http://balalaba.historyhots.com/wm/2.html" title="配置应用签名信息">配置应用签名信息</a></li><li><a href="https://www.balalaba.com/gpt" title="在 WebAssembly 中使用 Rust 编写 eBPF 程序并发布 OCI 镜像">在 WebAssembly 中使用 Rust 编写 eBPF 程序并发布 OCI 镜像</a></li>      </ul>
+    </div>
+    <div class="blog_list">
+      <div class="side_title">
+        <h3>猜你喜欢</h3>
+      </div>
+      <ul>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/13.html" class="blog_more">
+          <h2>配置应用签名信息</h2>
+          <div class="ps"></div>
+          
+          <p></p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">1482</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wen/5.html" class="blog_more">
+          <h2>边缘计算：盘点100个知识点</h2>
+          <div class="ps"><span class="ps_tj">推荐</span></div>
+          
+          <p>第三代、第四代和第五代蜂窝技术。简单来说，3G 代表智能手机及其移动网络浏览器的引入；4G 是当前一代的蜂窝技术，为移动设备提供真正的宽带互联网接入；5G 蜂窝技术将为蜂窝系统提供巨大的带宽并减少延迟，支持从智能手机到自动驾驶汽车和大规模物联网的一系列设备。边缘计算被认为是 5G 的关键组成部分。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wen/" target="_blank">问答</a></span><span class="info_time">2023-03-23</span><span class="info_view">28</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wen/4.html" class="blog_more">
+          <h2>大型物联网平台如何来保障亿级设备安全连接上云？</h2>
+          <div class="ps"><span class="ps_tj">推荐</span><span class="ps_yc">原创</span></div>
+           <i><img src="/d/file/p/2023/03-23/smallbe1f74a105679c41ce1a12ed9e8cee691679550511.png" alt="大型物联网平台如何来保障亿级设备安全连接上云？"></i>
+          <p>摘要：华为云IoT设备接入云服务（后续章节简称为“IoTDA”）提供海量设备的接入和管理能力，可以将IoT设备联接到华为云，支撑设备数据采集上云和云端下发命令给设备进行远程控制，配合华为云其他产品，帮助快速构筑物联网解决方案。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wen/" target="_blank">问答</a></span><span class="info_time">2023-03-23</span><span class="info_view">14</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/15.html" class="blog_more">
+          <h2>边缘计算：盘点100个知识点</h2>
+          <div class="ps"></div>
+          
+          <p>首页&nbsp; / &nbsp; 外贸问答 / 边缘计算：盘点100个知识点 <br />
+边缘计算：盘点100个知识点 <br />
+分类：外贸问答 <br />
+来源：DEVELOPERS 2023-03-23 13:51:26 <br />
+ <br />
+3G、4G、5G <br />
+第三代、第四代和第...</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">621</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/2.html" class="blog_more">
+          <h2>配置应用签名信息</h2>
+          <div class="ps"><span class="ps_tj">推荐</span><span class="ps_yc">原创</span></div>
+          
+          <p>准备签名文件									文件名称						作用												0密钥文件（.p12文件）						用于打包项目时进行签名、获取签名证书指纹。										证书请求文件（.csr）						用于向华为申请调试证书、发布证书。												表1 需准备的签名文件清单			搭建完开发环境后，您需要使用DevEco Studio</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-03-23</span><span class="info_view">12</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/16.html" class="blog_more">
+          <h2>大型物联网平台如何来保障亿级设备安全连接上云？</h2>
+          <div class="ps"></div>
+          
+          <p></p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">1451</span></div>
+</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box_r">
+    <div class="hot_news">
+      <div class="side_title">
+        <h3>最近文章</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/wm/16.html" target="_blank">
+          <p>大型物联网平台如何来保障亿级设备安全连接上云？</p>
+          </a><span>1451</span></li>
+        <li><a href="http://balalaba.historyhots.com/wm/15.html" target="_blank">
+          <p>边缘计算：盘点100个知识点</p>
+          </a><span>621</span></li>
+        <li><a href="http://balalaba.historyhots.com/wm/14.html" target="_blank">
+          <p>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</p>
+          </a><span>1117</span></li>
+        <li><a href="http://balalaba.historyhots.com/wm/12.html" target="_blank">
+          <p>【Kafka系列教程】088：Kafka Streams之概念——状态</p>
+          </a><span>1393</span></li>
+        <li><a href="http://balalaba.historyhots.com/wm/13.html" target="_blank">
+          <p>配置应用签名信息</p>
+          </a><span>1482</span></li>
+      </ul>
+    </div>
+    <div class="tags">
+      <div class="side_title"><a href="http://balalaba.historyhots.com/tags.html">更多</a>
+        <h3>热门标签</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E5%A4%96%E8%B4%B8">外贸</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=SaaS%E5%B9%B3%E5%8F%B0">SaaS平台</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=CMS">CMS</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E9%87%87%E8%B4%AD%E5%95%86">采购商</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E6%B5%B7%E5%A4%96">海外</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E5%87%BA%E5%8F%A3">出口</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E6%B5%B7%E5%85%B3%E6%95%B0%E6%8D%AE">海关数据</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86">跨境电商</a></li>      </ul>
+    </div>
+    <div class="tj_news">
+      <div class="side_title">
+        <h3>站长推荐</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/wm/2.html" target="_blank">
+          <p>配置应用签名信息</p>
+          </a></li>
+        <li><a href="https://www.balalaba.com/gpt" target="_blank">
+          <p>在 WebAssembly 中使用 Rust 编写 eBPF 程序并发布 OCI 镜像</p>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="box">
+    <div class="copyright">
+      <p>Copyright © 贸管家，外贸智能营销SaaS平台 Design by <a href="/" target="_blank">贸管家</a></p>
+      <p>备案号 <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">沪ICP备17029932号-1</a> ｜ 上海钰祺网络科技有限公司｜上海市徐汇区桂平路410号孵化中心B区111室</p>
+    </div>
+  </div>
+</footer>
+<div class="side_nav">
+  <ul>
+    <li><a href="http://balalaba.historyhots.com/about" title="关于贸管家"><i class="icon_ab"><img src="http://balalaba.historyhots.com/skin/html/images/ft_about.png" alt=""></i> </a></li>
+    <li><a title="每日询盘"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_qq.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/qq.png" alt="qq"></span> </a></li>	
+    <li><a title="免费试用"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_ewm.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/wx.png" alt="微信"></span> </a></li>
+    <li><a href="#" class="icon-top" title="返回顶部"><i class="icon_fh"><img src="http://balalaba.historyhots.com/skin/html/images/ft_top.png" alt=""></i> </a></li>
+  </ul>
+</div><script src="http://balalaba.historyhots.com/e/public/onclick/?enews=donews&classid=1&id=7"></script></body>
+</html>

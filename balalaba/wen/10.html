@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>大型物联网平台如何来保障亿级设备安全连接上云？_外贸智能营销SaaS平台-贸管家</title>
+<meta name="keywords" content="" />
+<meta name="description" content="摘要：华为云IoT设备接入云服务（后续章节简称为“IoTDA”）提供海量设备的接入和管理能力，可以将IoT设备联接到华为云，支撑设备数据采集上云和云端下发命令给设备进行远程控制，配合华为云其他产品，帮助快速构筑物联网解决方案。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="http://balalaba.historyhots.com/skin/html/css/base.css" rel="stylesheet">
+<link href="http://balalaba.historyhots.com/skin/html/css/m.css" rel="stylesheet">
+<link href="http://balalaba.historyhots.com/skin/html/css/swiper.min.css" rel="stylesheet">
+<script src="http://balalaba.historyhots.com/skin/html/js/jquery-3.6.0.min.js" ></script>
+<script src="http://balalaba.historyhots.com/skin/html/js/comm.js"></script>
+<!---代码高亮-->
+<link href="http://balalaba.historyhots.com/skin/html/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://balalaba.historyhots.com/skin/html/SyntaxHighlighter/shCore.js"></script>
+<script type="text/javascript">
+ SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+<header>
+  <div class="topbar"> <a href="https://www.balalaba.com/" class="logo">贸管家</a>
+    <div class="search">
+      <form action="http://balalaba.historyhots.com/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="" type="submit">
+      </form>
+    </div>
+  </div>
+  <h2 id="mnavh"><span class="navicon"></span></h2>
+</header>
+<article>
+  <nav>
+    <div class="topnav">
+      <ul id="starlist">
+        <li><a href="http://balalaba.historyhots.com/">最新资讯</a></li>
+        <li><a href="http://balalaba.historyhots.com/tuijian/">推荐内容</a></li>
+        <li><a href="http://balalaba.historyhots.com/hot/">热门内容</a></li>
+<li><a href="http://balalaba.historyhots.com/wm/">外贸</a></li><li><a href="http://balalaba.historyhots.com/buy/">采购</a></li><li><a href="http://balalaba.historyhots.com/wen/">问答</a></li> 
+      </ul>
+    </div>
+    <em></em> </nav>
+  <div class="box_l">
+    <div class="weizhi"><a href="http://balalaba.historyhots.com/">首页</a>&nbsp; / &nbsp;<a href="http://balalaba.historyhots.com/wen/">问答</a> / 大型物联网平台如何来保障亿级设备安全连接上云？</div>
+    <div class="con_tit">
+      <h1>大型物联网平台如何来保障亿级设备安全连接上云？</h1>
+      <div class="con_info"><span class="con_tag">原创</span><span class="con_writer">云社区小助手</span><span class="con_class">分类：<a href="http://balalaba.historyhots.com/wen/" target="_blank">问答</a></span><span class="con_befrom">来源：DEVELOPERS</span> 
+        <time>2023-03-23 13:47:22</time>
+        <span class="con_link"><script src=http://balalaba.historyhots.com/e/public/ViewClick/?classid=3&id=10&addclick=1></script></span> </div>
+    </div>
+    <div class="content">
+<blockquote>
+<p><strong>摘要：</strong>华为云IoT设备接入云服务（后续章节简称为&ldquo;IoTDA&rdquo;）提供海量设备的接入和管理能力，可以将IoT设备联接到华为云，支撑设备数据采集上云和云端下发命令给设备进行远程控制，配合华为云其他产品，帮助快速构筑物联网解决方案。</p></blockquote>
+<p>本文分享自华为云社区《<a href="https://bbs.huaweicloud.com/blogs/358026?utm_source=luntan&amp;utm_medium=bbs-ex&amp;utm_campaign=other&amp;utm_content=content" rel="nofollow" target="_self">大型物联网平台如何来保障亿级设备安全连接上云？</a>》，作者：华为云IoT高级工程师茂茂。</p>
+<h1>1. IoTDA业务流</h1>
+<p>华为云IoT设备接入云服务（后续章节简称为&ldquo;IoTDA&rdquo;）提供海量设备的接入和管理能力，可以将IoT设备联接到华为云，支撑设备数据采集上云和云端下发命令给设备进行远程控制，配合华为云其他产品，帮助快速构筑物联网解决方案。</p>
+<p>使用物联网平台构建一个完整的物联网解决方案主要包括3部分：物联网平台、业务应用和设备。</p>
+<p><img alt="cke_185.png" src="/d/file/p/2023/03-23/be1f74a105679c41ce1a12ed9e8cee69.png" /></p>
+<p>其中，业务应用又可拆解为<strong>应用集成层</strong>和<strong>设备数据集成层</strong>两部分，前者基于IoTDA提供的丰富的原子API实现设备管理和控制，后者基于IoTDA提供数据流转能力实现设备数据采集。</p>
+<p><img alt="cke_186.png" src="/d/file/p/2023/03-23/05d051e1219f56cca2ddc8e36341c863.png" /></p>
+<p>通过上述分析，在IoTDA的业务流中，存在多个交互过程，包括但不限于：①应用集成层与平台、②设备与平台、③平台与设备数据集成层。</p>
+<p>交互必然存在认证鉴权，此文以上述三个交互过程为例，对IoTDA的鉴权和认证进行分析，帮助开发者理解其中的安全原理和机制，快速上手华为云IoT设备接入云服务。</p>
+<h1>2. 认证鉴权基本概念</h1>
+<p>在进入IoTDA业务流认证鉴权前，首先，我们要先理解&ldquo;认证鉴权&rdquo;这一概念。</p>
+<p>这里我们引入一个例子，帮助我们快速理解。唐三藏西天取经，路过一个个关隘，过程我们很熟悉了&mdash;&mdash;唐三藏递送通关文牒，口念：&ldquo;贫僧唐三藏，从东土大唐而来，去往西天拜佛求经&rdquo;。</p>
+<p>对应着我们的哲学三问：</p>
+<ol>
+	<li>我是谁？（贫僧唐三藏）</li>
+	<li>我从哪里来？（从东土大唐而来）</li>
+	<li>我要到哪里去？（去往西天拜佛求经）</li>
+</ol>
+<p>声明了自己的身份以及执行的操作。</p>
+<p>关隘把守人员：</p>
+<ol>
+	<li>验证身份：他是不是东土大唐派来的唐三藏？&mdash;&mdash;认证（凭据为通关文牒）。</li>
+	<li>东土大唐派遣（委托）唐三藏去西天取经，凭据为通关文牒。&mdash;&mdash;授权（授权媒介为通关文牒）</li>
+	<li>通关文牒中派遣是否真实？&mdash;&mdash;鉴权（通关文牒的真实性）</li>
+	<li>要不要放他通行？&mdash;&mdash;权限控制（通关）</li>
+</ol>
+<p>说明：如下关于&ldquo;认证、授权、鉴权、权限控制&rdquo;的内容来自对互联网相关资料的整理。</p>
+<h2>2.1 认证（Identification）</h2>
+<p>对<strong>访问系统的主体</strong>的<strong>身份进行验证</strong>的过程，确认访问主体是它所声明的。访问主体使用**&ldquo;身份标识符+认证凭证&rdquo;**来证明自己的身份。</p>
+<p>一般来说，认证有三种方式：</p>
+<ul>
+	<li>基于信息秘密的身份认证，你知道的内容（something you know）：静态口令、预共享密钥、公私钥对、数字证书&hellip;</li>
+	<li>基于信任物体的身份认证，你持有的证明（something you have）：智能卡、动态令牌卡（u盾）、身份证&hellip;</li>
+	<li>基于生物特征的身份认证，你就是这个人（something you are）：生物特征（虹膜、面部、指纹、语音等）</li>
+</ul>
+<p>高安全要求的场景下，会使用多种认证方式组合进行身份校验，即多因素认证。</p>
+<h2>2.2 授权（Authorization）</h2>
+<p>资源所有者委派执行者，赋予其指定范围的权限，执行对资源的操作。</p>
+<p><strong>资源所有者</strong>：拥有资源的所有权利，一般就是资源的拥有者。</p>
+<p><strong>执行者</strong>：被委派去执行资源的相关操作。</p>
+<p><strong>操作权限</strong>：可以对资源进行的某种操作。</p>
+<p><strong>资源</strong>：有价值的信息或数据等，受到安全保护。</p>
+<p>现实生活中，授权的实现方式（授权媒介）有银行卡、门禁卡、钥匙、证书等，在互联网应用开发领域，授权的实现方式有：</p>
+<ul>
+	<li>通过web服务器的session机制，一个访问会话保持着用户的授权信息</li>
+	<li>通过web浏览器的cookie机制，一个网站的cookie保持着用户的授权信息</li>
+	<li>颁发授权令牌（token），一个合法有效的令牌中保持着用户的授权信息</li>
+</ul>
+<p>通常要求授权媒介不可被篡改，不可随意伪造，很多时候需要受保护，防止被窃取。</p>
+<h2>2.3 鉴权（Authentication）</h2>
+<p>对一个声明者的身份权利的真实性进行鉴别。</p>
+<p>授权和鉴权是一个一一对应的流程，有授权才会去鉴权，鉴权就是对授权所颁发授信媒介进行解析，确认其真实性。</p>
+<h2>2.4 权限控制（Access/Permission Control）</h2>
+<p>权限控制是指对可执行的各种操作组合配置为权限列表，然后根据执行者的权限，若其操作在权限范围内，则允许执行，否则禁止。</p>
+<p>权限，是将执行者的行为抽象化的一个概念。</p>
+<p>控制，是根据执行者的权限，对其所执行的操作进行判断，决定允许或禁止当前操作的执行。</p>
+<p>常见的权限系统设计模型有DAC（Discretionary Access Control）自主访问控制、MAC（mandatory access control）强制访问控制、RBAC（Role-Based Access Control）基于角色的访问控制、ABAC（Attribute-based access control）基于属性的访问控制。</p>
+<h2>2.5 四者的关系</h2>
+<p>认证、授权、鉴权和权限控制这四个环节是一个前后依次发生、上下游的关系：认证--&gt;授权--&gt;鉴权--&gt;权限控制。</p>
+<p>认证和授权经常同时发生，让人误以为两者一样，其实两者是不一样的概念，两者都有对身份的确认过程，主要区别在于：</p>
+<ul>
+	<li>认证是确认声明者的本身身份，其作为授权的上游衔接而存在；</li>
+	<li>鉴权是对声明者所声明的真实性进行确认的过程，其作为授权的下游衔接而存在。</li>
+</ul>
+<h1>3. 通用的认证鉴权手段</h1>
+<p>&ldquo;基于信息秘密的身份认证&rdquo;的这一类认证方式较为常见，本文涉及的认证手段均属此类。</p>
+<p>服务端对客户端的认证鉴权要解决两个关键问题：</p>
+<ol>
+	<li>确认客户端的身份；</li>
+	<li>确认请求来自确定身份的客户端。</li>
+</ol>
+<h2>3.1 基于账号口令认证鉴权：</h2>
+<p>客户端和服务端均持有认证客户端的账号口令，客户端认证和鉴权过程均携带账号口令，服务端通过验证账号口令的正确性来完成认证和鉴权。</p>
+<p>此种方式需要保证口令存储和传输过程的秘密性，不被服务端和客户端以外的第三方窃取。一旦口令遭到泄露，客户端身份将有可能被仿冒，在更新泄露的口令前都始终存在极大的安全隐患。因此，我们很容易想到给凭据增加一个期限。</p>
+<h2>3.2 临时令牌鉴权：</h2>
+<p>与&ldquo;基于账号口令认证鉴权&rdquo;相同，客户端和服务端预共享账号口令，认证过程中，客户端携带账号口令，服务端验证账号口令的正确性。不同的是，认证通过后，服务端向客户端下发有一定时效性的令牌即Token，客户端在令牌有效期内使用该临时令牌与服务端进行业务交互，服务端基于该Token对客户端进行鉴权。</p>
+<p>在鉴权阶段使用有时效性的凭据，可有效避免口令在鉴权阶段的泄露。此种方式仍然需要保证口令存储和认证传输过程中的秘密性，同时也需要保证临时令牌在时效内的秘密性，一定程度上降低了口令泄露的概率。</p>
+<h2>3.3 对称加密认证：</h2>
+<p>与前两者类似，客户端和服务端预共享账号口令。认证和鉴权过程中，客户端使用口令作为加密秘钥对请求或请求的摘要做加密，将密文附加在认证和鉴权的请求中，服务端收到请求后，使用口令对密文做解密或对摘要做验证，随即完成对客户端的认证和鉴权。</p>
+<p>此种方式仍需保证口令存储的秘密性，但可喜的是实现了口令不出现在传输过程中，显著降低了口令泄露的风险。</p>
+<p>账号和口令是客户端身份的象征，谁持有了该客户端的账号和口令就被认为是该客户端。客户端的账号口令本应只属于客户端所有，但因服务端的验证需要，客户端需与服务端共享该账号及口令。若有一种验证方式，能够实现服务端不持有口令即可完成口令的验证，那么将带来安全性的跨越式提升。</p>
+<h2>3.4 非对称加密认证：</h2>
+<p>非对称加密应运而生。客户端生成一对唯一的密钥对，密钥对包含一个公钥和一个私钥，两者一一对应，秘钥对有如下属性：密钥对包含公钥和私钥，如果用其中<strong>一个密钥加密一段数据</strong>，则<strong>必须用另一个密钥才能解密</strong>。</p>
+<p>在&ldquo;对称加密认证&rdquo;的基础上，客户端与服务端预共享公钥。认证和鉴权过程中，客户端使用私钥对请求或请求的摘要加密，将密文附加在认证和鉴权的请求中，服务端收到请求后，使用公钥对密文解密或对摘要做验证，随即完成对客户端的认证和鉴权。当服务端需要给客户端回复信息时，服务端可使用公钥对信息加密，该信息也只能由客户端的私钥解密。</p>
+<p>如上过程我们可总结为：&rdquo;公钥共享，私钥保密；公钥加密，私钥解密；私钥签名，公钥验签&ldquo;。只要客户端不泄露私钥，那么就是安全的。</p>
+<p>此种方式仅需保证私钥在客户端端存储的秘密性，同时也可实现整个端到端通信过程的安全可信。</p>
+<h2>3.5 证书认证：</h2>
+<p>前一种方式下，若存在大量的客户端，那么预共享公钥显然会是个繁琐的过程。</p>
+<p>好在办法总比困难多。信任模型能够解决&ldquo;大量客户端&rdquo;与服务端预共享公钥的问题。</p>
+<p>具体的做法是：我们对公钥做一个变身，公钥叠加客户端身份信息得到TBS（to be signed），引入一个可信的第三方负责对客户端身份信息做公证（可信第三方使用其私钥对TBS签名，将TBS、签名算法及签名值组合而成得到证书），认证和鉴权过程中，客户端将证书传输给服务端，服务端仅需通过预共享可信第三方的公钥，使用该公钥验证证书并提取到客户端身份信息、服务端公钥，即可完成对客户端公钥的预共享，随即可完成后续的认证和鉴权。</p>
+<p>如上过程我们可以理解为：预共享客户端公钥的目的是将身份标识及对应的公钥提供给服务端，证书方式将此过程交给可信第三方完成，服务端从客户端提供的证书中提取这两种信息，这两种信息的真实性通过可信第三方的公证（对证书验签）来保证。</p>
+<p>如果客户端私钥遭泄露怎么办？那么就引入了吊销机制。</p>
+<p>可信第三方维护了一个被吊销了的客户端证书列表，并将该列表获取方式附加在它所颁发的证书的扩展信息中；客户端一旦泄露自身私钥，则向可信第三方申请吊销该证书；申请通过后可信第三方将该证书添加到证书吊销列表中。服务端在验证客户端证书时，从证书中读取证书吊销列表获取方式，从而获取到已吊销的证书列表，确认该证书是否已被吊销，实际实现中为了避免性能消耗，服务端定期从可信第三方获取吊销证书列表并做缓存，每次比对仅需在缓存中比对，无需频繁从可信第三方拉取吊销列表。</p>
+<h2>3.6 双向证书认证：</h2>
+<p>前一小节介绍了服务端对客户端的认证，客户端认证服务端，也只需要在客户端预置服务端的证书CA，即可实现双向证书认证。</p>
+<p>双向证书认证是一种使用数字证书作为通信实体身份鉴别依据的认证手段。基于：</p>
+<ol>
+	<li>非对称加密特性：密钥对包含公钥和私钥，如果用其中<strong>一个密钥加密一段数据</strong>，则<strong>必须用另一个密钥才能解密</strong>。&rdquo;公钥共享，私钥保密；公钥加密，私钥解密；私钥签名，公钥验签&ldquo;。</li>
+	<li>数字证书：包含一个公钥、身份信息以及证书授权中心的数字签名。</li>
+	<li>信任模型：当可以确定一个实体身份或者有一个足够可信的身份签发者证明该实体的身份时，才能做出信任那个身份的决定。</li>
+</ol>    </div>
+<script>
+var paras = document.getElementsByTagName("pre");
+for ( var i=0;i<paras.length;i++ ) {
+    paras[i].setAttribute("class","brush:php;toolbar:false");     
+}
+</script>
+    <div class="con_tags"></div>
+    <div class="info-pre-next">
+      <p>上一篇：<a href='http://balalaba.historyhots.com/wen/5.html'>边缘计算：盘点100个知识点</a></p>
+      <p>下一篇：<a href='http://balalaba.historyhots.com/wen/'>返回列表</a></p>
+    </div>
+    <div class="hot_news other_news">
+      <div class="side_title">
+        <h3>相关文章</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/wen/5.html" title="边缘计算：盘点100个知识点">边缘计算：盘点100个知识点</a></li><li><a href="http://balalaba.historyhots.com/wen/4.html" title="大型物联网平台如何来保障亿级设备安全连接上云？">大型物联网平台如何来保障亿级设备安全连接上云？</a></li><li><a href="http://balalaba.historyhots.com/wen/10.html" title="大型物联网平台如何来保障亿级设备安全连接上云？">大型物联网平台如何来保障亿级设备安全连接上云？</a></li>      </ul>
+    </div>
+    <div class="blog_list">
+      <div class="side_title">
+        <h3>猜你喜欢</h3>
+      </div>
+      <ul>
+
+
+<li><a href="http://balalaba.historyhots.com/wen/10.html" class="blog_more">
+          <h2>大型物联网平台如何来保障亿级设备安全连接上云？</h2>
+          <div class="ps"><span class="ps_yc">原创</span></div>
+           <i><img src="/d/file/p/2023/03-23/smallbe1f74a105679c41ce1a12ed9e8cee691679550511.png" alt="大型物联网平台如何来保障亿级设备安全连接上云？"></i>
+          <p>摘要：华为云IoT设备接入云服务（后续章节简称为“IoTDA”）提供海量设备的接入和管理能力，可以将IoT设备联接到华为云，支撑设备数据采集上云和云端下发命令给设备进行远程控制，配合华为云其他产品，帮助快速构筑物联网解决方案。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wen/" target="_blank">问答</a></span><span class="info_time">2023-03-23</span><span class="info_view">4</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/16.html" class="blog_more">
+          <h2>大型物联网平台如何来保障亿级设备安全连接上云？</h2>
+          <div class="ps"></div>
+          
+          <p></p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">1451</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/buy/6.html" class="blog_more">
+          <h2>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</h2>
+          <div class="ps"><span class="ps_tj">推荐</span></div>
+          
+          <p>引言前一篇文章（可以看我主页哦）中提到，普通的 ETH 交易并不能够做到让用户无需 gas 费，需要交易中嵌套一个交易，即元交易，来实现免 gas 费。本文将分析开源库 OpenZeppelin/openzeppelin-contracts 中的元交易合约的实现，让你能够快速入门元交易实现细节，从而能够自己对后续更多的相关技术</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/buy/" target="_blank">采购</a></span><span class="info_time">2023-03-23</span><span class="info_view">17</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/12.html" class="blog_more">
+          <h2>【Kafka系列教程】088：Kafka Streams之概念——状态</h2>
+          <div class="ps"></div>
+          
+          <p></p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">1393</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/2.html" class="blog_more">
+          <h2>配置应用签名信息</h2>
+          <div class="ps"><span class="ps_tj">推荐</span><span class="ps_yc">原创</span></div>
+          
+          <p>准备签名文件									文件名称						作用												0密钥文件（.p12文件）						用于打包项目时进行签名、获取签名证书指纹。										证书请求文件（.csr）						用于向华为申请调试证书、发布证书。												表1 需准备的签名文件清单			搭建完开发环境后，您需要使用DevEco Studio</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-03-23</span><span class="info_view">12</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/14.html" class="blog_more">
+          <h2>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</h2>
+          <div class="ps"></div>
+          
+          <p></p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">1117</span></div>
+</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box_r">
+    <div class="hot_news">
+      <div class="side_title">
+        <h3>最近文章</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/wen/5.html" target="_blank">
+          <p>边缘计算：盘点100个知识点</p>
+          </a><span>28</span></li>
+        <li><a href="http://balalaba.historyhots.com/wen/4.html" target="_blank">
+          <p>大型物联网平台如何来保障亿级设备安全连接上云？</p>
+          </a><span>14</span></li>
+        <li><a href="http://balalaba.historyhots.com/wen/10.html" target="_blank">
+          <p>大型物联网平台如何来保障亿级设备安全连接上云？</p>
+          </a><span>4</span></li>
+      </ul>
+    </div>
+    <div class="tags">
+      <div class="side_title"><a href="http://balalaba.historyhots.com/tags.html">更多</a>
+        <h3>热门标签</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E5%A4%96%E8%B4%B8">外贸</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=SaaS%E5%B9%B3%E5%8F%B0">SaaS平台</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=CMS">CMS</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E9%87%87%E8%B4%AD%E5%95%86">采购商</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E6%B5%B7%E5%A4%96">海外</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E5%87%BA%E5%8F%A3">出口</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E6%B5%B7%E5%85%B3%E6%95%B0%E6%8D%AE">海关数据</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86">跨境电商</a></li>      </ul>
+    </div>
+    <div class="tj_news">
+      <div class="side_title">
+        <h3>站长推荐</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/wen/5.html" target="_blank">
+          <p>边缘计算：盘点100个知识点</p>
+          </a></li>
+        <li><a href="http://balalaba.historyhots.com/wen/4.html" target="_blank">
+          <p>大型物联网平台如何来保障亿级设备安全连接上云？</p>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="box">
+    <div class="copyright">
+      <p>Copyright © 贸管家，外贸智能营销SaaS平台 Design by <a href="/" target="_blank">贸管家</a></p>
+      <p>备案号 <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">沪ICP备17029932号-1</a> ｜ 上海钰祺网络科技有限公司｜上海市徐汇区桂平路410号孵化中心B区111室</p>
+    </div>
+  </div>
+</footer>
+<div class="side_nav">
+  <ul>
+    <li><a href="http://balalaba.historyhots.com/about" title="关于贸管家"><i class="icon_ab"><img src="http://balalaba.historyhots.com/skin/html/images/ft_about.png" alt=""></i> </a></li>
+    <li><a title="每日询盘"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_qq.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/qq.png" alt="qq"></span> </a></li>	
+    <li><a title="免费试用"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_ewm.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/wx.png" alt="微信"></span> </a></li>
+    <li><a href="#" class="icon-top" title="返回顶部"><i class="icon_fh"><img src="http://balalaba.historyhots.com/skin/html/images/ft_top.png" alt=""></i> </a></li>
+  </ul>
+</div><script src="http://balalaba.historyhots.com/e/public/onclick/?enews=donews&classid=3&id=10"></script></body>
+</html>

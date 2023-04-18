@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>配置应用签名信息_外贸智能营销SaaS平台-贸管家</title>
+<meta name="keywords" content="" />
+<meta name="description" content="准备签名文件									文件名称						作用												0密钥文件（.p12文件）						用于打包项目时进行签名、获取签名证书指纹。										证书请求文件（.csr）						用于向华为申请调试证书、发布证书。												表1 需准备的签名文件清单			搭建完开发环境后，您需要使用DevEco Studio" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="http://balalaba.historyhots.com/skin/html/css/base.css" rel="stylesheet">
+<link href="http://balalaba.historyhots.com/skin/html/css/m.css" rel="stylesheet">
+<link href="http://balalaba.historyhots.com/skin/html/css/swiper.min.css" rel="stylesheet">
+<script src="http://balalaba.historyhots.com/skin/html/js/jquery-3.6.0.min.js" ></script>
+<script src="http://balalaba.historyhots.com/skin/html/js/comm.js"></script>
+<!---代码高亮-->
+<link href="http://balalaba.historyhots.com/skin/html/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://balalaba.historyhots.com/skin/html/SyntaxHighlighter/shCore.js"></script>
+<script type="text/javascript">
+ SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+<header>
+  <div class="topbar"> <a href="https://www.balalaba.com/" class="logo">贸管家</a>
+    <div class="search">
+      <form action="http://balalaba.historyhots.com/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="" type="submit">
+      </form>
+    </div>
+  </div>
+  <h2 id="mnavh"><span class="navicon"></span></h2>
+</header>
+<article>
+  <nav>
+    <div class="topnav">
+      <ul id="starlist">
+        <li><a href="http://balalaba.historyhots.com/">最新资讯</a></li>
+        <li><a href="http://balalaba.historyhots.com/tuijian/">推荐内容</a></li>
+        <li><a href="http://balalaba.historyhots.com/hot/">热门内容</a></li>
+<li><a href="http://balalaba.historyhots.com/wm/">外贸</a></li><li><a href="http://balalaba.historyhots.com/buy/">采购</a></li><li><a href="http://balalaba.historyhots.com/wen/">问答</a></li> 
+      </ul>
+    </div>
+    <em></em> </nav>
+  <div class="box_l">
+    <div class="weizhi"><a href="http://balalaba.historyhots.com/">首页</a>&nbsp; / &nbsp;<a href="http://balalaba.historyhots.com/buy/">采购</a> / 配置应用签名信息</div>
+    <div class="con_tit">
+      <h1>配置应用签名信息</h1>
+      <div class="con_info"><span class="con_tag">原创</span><span class="con_writer">狂奔的老牛</span><span class="con_class">分类：<a href="http://balalaba.historyhots.com/buy/" target="_blank">采购</a></span><span class="con_befrom">来源：DEVELOPERS</span> 
+        <time>2023-03-23 13:22:21</time>
+        <span class="con_link"><script src=http://balalaba.historyhots.com/e/public/ViewClick/?classid=2&id=9&addclick=1></script></span> </div>
+    </div>
+    <div class="content">
+<h2><strong>准备签名文件</strong></h2>
+<table>
+	<tbody>
+		<tr>
+			<th><strong>文件名称</strong></th>
+			<th><strong>作用</strong></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td>
+			<p>0密钥文件（.p12文件）</p></td>
+			<td>
+			<p>用于打包项目时进行签名、获取签名证书指纹。</p></td>
+		</tr>
+		<tr>
+			<td>
+			<p>证书请求文件（.csr）</p></td>
+			<td>
+			<p>用于向华为申请调试证书、发布证书。</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td colspan="2">
+			<p><strong>表1&nbsp;</strong>需准备的签名文件清单</p></td>
+		</tr>
+	</tbody>
+</table>
+<p>搭建完开发环境后，您需要使用DevEco Studio生成密钥文件（.p12文件）与证书请求文件（.csr）。</p>
+<ol>
+	<li>在DevEco Studio主菜单栏点击<strong>Build &gt; Generate Key</strong>&nbsp;<strong>and CSR</strong>。</li>
+	<li>在<strong>Key Store File</strong>中，点击<strong>New</strong>创建密钥库文件。</li>
+</ol>
+<p>&nbsp;</p>
+<ol>
+	<li>在<strong>Create Key Store</strong>窗口中，填写密钥库信息后，点击<strong>OK</strong>。
+	<ul>
+		<li><strong>Key Store File</strong>：选择密钥库文件存储路径，并设置文件名称，点击<strong>OK</strong>。</li>
+		<li><strong>Password</strong>：设置密钥库密码，必须由大写字母、小写字母、数字和特殊符号中的两种以上字符的组合，长度至少为8位。请记住该密码，后续签名配置需要使用。</li>
+		<li><strong>Confirm Password</strong>：再次输入密钥库密码。</li>
+	</ul></li>
+	<li>在<strong>Generate Key</strong>界面中，继续填写密钥信息后，点击<strong>Next</strong>。
+	<ul>
+		<li><strong>Alias</strong>：密钥的别名信息，用于标识密钥名称。请记住该别名，后续签名配置需要使用。</li>
+		<li><strong>Password</strong>：密钥对应的密码，与密钥库密码保持一致，无需手动输入。</li>
+		<li><strong>Validity</strong>：证书有效期，建议设置为25年及以上，覆盖应用的完整生命周期。</li>
+		<li><strong>Certificate</strong>：输入证书基本信息，如组织、城市或地区、国家码等。</li>
+	</ul></li>
+	<li>在<strong>Generate CSR</strong>界面，选择密钥，设置CSR文件存储路径并设置文件名称，点击<strong>OK</strong>。</li>
+	<li>点击<strong>Finish</strong>按钮，创建CSR文件成功，可以在存储路径下获取生成的密钥库文件（.p12）和证书请求文件（.csr）。</li>
+</ol>
+<h2><strong>配置调试应用的签名信息</strong></h2>
+<h3><strong>准备签名信息</strong></h3>为确保HarmonyOS应用的完整性，HarmonyOS通过数字证书和Profile文件来对应用进行管控，只有签名过的HAP才允许安装到设备上运行。因此，为了保证应用能够安装到调试设备上，您需要提前申请相应的调试证书与调试Profile文件。    </div>
+<script>
+var paras = document.getElementsByTagName("pre");
+for ( var i=0;i<paras.length;i++ ) {
+    paras[i].setAttribute("class","brush:php;toolbar:false");     
+}
+</script>
+    <div class="con_tags"></div>
+    <div class="info-pre-next">
+      <p>上一篇：<a href='http://balalaba.historyhots.com/buy/6.html'>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</a></p>
+      <p>下一篇：<a href='http://balalaba.historyhots.com/buy/'>返回列表</a></p>
+    </div>
+    <div class="hot_news other_news">
+      <div class="side_title">
+        <h3>相关文章</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/buy/6.html" title="智能合约开发实战——元交易（Metatransaction），元交易合约的实现">智能合约开发实战——元交易（Metatransaction），元交易合约的实现</a></li><li><a href="https://www.balalaba.com/" title="爬虫时IP代理不能用？考虑以下几点原因">爬虫时IP代理不能用？考虑以下几点原因</a></li><li><a href="http://balalaba.historyhots.com/buy/9.html" title="配置应用签名信息">配置应用签名信息</a></li>      </ul>
+    </div>
+    <div class="blog_list">
+      <div class="side_title">
+        <h3>猜你喜欢</h3>
+      </div>
+      <ul>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/8.html" class="blog_more">
+          <h2>Leetcode 0406. 根据身高重建队列</h2>
+          <div class="ps"><span class="ps_yc">原创</span></div>
+          
+          <p>0406. 根据身高重建队列Queue Reconstruction by Height假设有打乱顺序的一群人站成一个队列，数组 people 表示队列中一些人的属性（不一定按顺序）。每个 people[i] = [hi, ki] 表示第 i 个人的身高为 hi ，前面 正好 有 ki 个身高大于或等于 hi 的人。请你重新构造并返回输入数组 people</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-03-23</span><span class="info_view">27</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/buy/6.html" class="blog_more">
+          <h2>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</h2>
+          <div class="ps"><span class="ps_tj">推荐</span></div>
+          
+          <p>引言前一篇文章（可以看我主页哦）中提到，普通的 ETH 交易并不能够做到让用户无需 gas 费，需要交易中嵌套一个交易，即元交易，来实现免 gas 费。本文将分析开源库 OpenZeppelin/openzeppelin-contracts 中的元交易合约的实现，让你能够快速入门元交易实现细节，从而能够自己对后续更多的相关技术</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/buy/" target="_blank">采购</a></span><span class="info_time">2023-03-23</span><span class="info_view">17</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/7.html" class="blog_more">
+          <h2>【Kafka系列教程】088：Kafka Streams之概念——状态</h2>
+          <div class="ps"></div>
+          
+          <p>某些流处理应用程序不需要状态，这意味着消息的处理独立于所有其他消息的处理。然而，能够维护状态为复杂的流处理应用程序打开了许多可能性：您可以加入输入流，或分组和聚合数据记录。许多这样的有状态运算符是由Kafka Streams DSL.Kafka Streams提供了所谓的状态存储，流处理应用程序可以</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-03-23</span><span class="info_view">6</span></div>
+</li>
+
+
+<li><a href="https://www.balalaba.com/" class="blog_more">
+          <h2>爬虫时IP代理不能用？考虑以下几点原因</h2>
+          <div class="ps"><span class="ps_tj">推荐</span></div>
+           <i><img src="/skin/html/images/banner1.png" alt="爬虫时IP代理不能用？考虑以下几点原因"></i>
+          <p>代理服务商提供的IP大多数资源都是及时的。如果客户不能使用代理，IP正常访问网络，可以先检查代理IP是否有效IP生命周期不固定，受到影响IP类型，IP受质量等因素影响，有的生存时间短，几秒钟或几分钟，有的时间长，十几个小时或几天。通过测试或直接更改其他代理IP判断其不能使用的原因是比较直接快捷的方法。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/buy/" target="_blank">采购</a></span><span class="info_time">2023-03-23</span><span class="info_view">27</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/buy/9.html" class="blog_more">
+          <h2>配置应用签名信息</h2>
+          <div class="ps"><span class="ps_yc">原创</span></div>
+          
+          <p>准备签名文件									文件名称						作用												0密钥文件（.p12文件）						用于打包项目时进行签名、获取签名证书指纹。										证书请求文件（.csr）						用于向华为申请调试证书、发布证书。												表1 需准备的签名文件清单			搭建完开发环境后，您需要使用DevEco Studio</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/buy/" target="_blank">采购</a></span><span class="info_time">2023-03-23</span><span class="info_view">0</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wm/15.html" class="blog_more">
+          <h2>边缘计算：盘点100个知识点</h2>
+          <div class="ps"></div>
+          
+          <p>首页&nbsp; / &nbsp; 外贸问答 / 边缘计算：盘点100个知识点 <br />
+边缘计算：盘点100个知识点 <br />
+分类：外贸问答 <br />
+来源：DEVELOPERS 2023-03-23 13:51:26 <br />
+ <br />
+3G、4G、5G <br />
+第三代、第四代和第...</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wm/" target="_blank">外贸</a></span><span class="info_time">2023-04-13</span><span class="info_view">621</span></div>
+</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box_r">
+    <div class="hot_news">
+      <div class="side_title">
+        <h3>最近文章</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/buy/6.html" target="_blank">
+          <p>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</p>
+          </a><span>17</span></li>
+        <li><a href="https://www.balalaba.com/" target="_blank">
+          <p>爬虫时IP代理不能用？考虑以下几点原因</p>
+          </a><span>27</span></li>
+        <li><a href="http://balalaba.historyhots.com/buy/9.html" target="_blank">
+          <p>配置应用签名信息</p>
+          </a><span>0</span></li>
+      </ul>
+    </div>
+    <div class="tags">
+      <div class="side_title"><a href="http://balalaba.historyhots.com/tags.html">更多</a>
+        <h3>热门标签</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E5%A4%96%E8%B4%B8">外贸</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=SaaS%E5%B9%B3%E5%8F%B0">SaaS平台</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=CMS">CMS</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E9%87%87%E8%B4%AD%E5%95%86">采购商</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E6%B5%B7%E5%A4%96">海外</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E5%87%BA%E5%8F%A3">出口</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E6%B5%B7%E5%85%B3%E6%95%B0%E6%8D%AE">海关数据</a></li><li><a href="http://balalaba.historyhots.com/e/tags/?tagname=%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86">跨境电商</a></li>      </ul>
+    </div>
+    <div class="tj_news">
+      <div class="side_title">
+        <h3>站长推荐</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/buy/6.html" target="_blank">
+          <p>智能合约开发实战——元交易（Metatransaction），元交易合约的实现</p>
+          </a></li>
+        <li><a href="https://www.balalaba.com/" target="_blank">
+          <p>爬虫时IP代理不能用？考虑以下几点原因</p>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="box">
+    <div class="copyright">
+      <p>Copyright © 贸管家，外贸智能营销SaaS平台 Design by <a href="/" target="_blank">贸管家</a></p>
+      <p>备案号 <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">沪ICP备17029932号-1</a> ｜ 上海钰祺网络科技有限公司｜上海市徐汇区桂平路410号孵化中心B区111室</p>
+    </div>
+  </div>
+</footer>
+<div class="side_nav">
+  <ul>
+    <li><a href="http://balalaba.historyhots.com/about" title="关于贸管家"><i class="icon_ab"><img src="http://balalaba.historyhots.com/skin/html/images/ft_about.png" alt=""></i> </a></li>
+    <li><a title="每日询盘"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_qq.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/qq.png" alt="qq"></span> </a></li>	
+    <li><a title="免费试用"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_ewm.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/wx.png" alt="微信"></span> </a></li>
+    <li><a href="#" class="icon-top" title="返回顶部"><i class="icon_fh"><img src="http://balalaba.historyhots.com/skin/html/images/ft_top.png" alt=""></i> </a></li>
+  </ul>
+</div><script src="http://balalaba.historyhots.com/e/public/onclick/?enews=donews&classid=2&id=9"></script></body>
+</html>
