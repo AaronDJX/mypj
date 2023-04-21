@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/buy/6.html\" title=\"背包采购资讯：国际公司ALI JBOOR4月14日发布全球采购信息\">背包采购资讯：国际公司ALI JBOOR4月</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/buy/11.html\" title=\"意大利公司TESSILFORM S.P.A4月17日发布皮夹和箱包全球采购信息\">意大利公司TESSILFORM S.P.A4月17</a></li><li><a href=\"http://balalaba.historyhots.com/buy/6.html\" title=\"国际公司ALI JBOOR4月14日发布背包全球采购信息\">国际公司ALI JBOOR4月14日发布背包</a></li>");

@@ -18,19 +18,77 @@ if(!defined('InEmpireCMS'))
 <script src="http://balalaba.historyhots.com/skin/html/js/comm.js"></script>
 </head>
 <body>
-<header>
-  <div class="topbar"> <a href="https://www.balalaba.com/" class="logo">贸管家</a>
-    <div class="search">
-      <form action="http://balalaba.historyhots.com/e/search/index.php" method="post" name="searchform" id="searchform">
-        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
-        <input name="show" value="title" type="hidden">
-        <input name="tempid" value="1" type="hidden">
-        <input name="tbname" value="news" type="hidden">
-        <input name="Submit" class="input_submit" value="" type="submit">
-      </form>
-    </div>
-  </div>
-  <h2 id="mnavh"><span class="navicon"></span></h2>
+<header id="app" class="pc-header-nav ">
+    <div class="pc-hd-nav-ct">
+        <div class="nav-lf pointer">
+          <span @click="go('/')">贸管家</span>
+          <el-divider direction="vertical" ></el-divider>
+          <div class="nav-lf-tl">
+            <span>外贸智能营销SaaS平台</span>
+          </div>
+        </div>
+        <div class="nav-rg">
+          <div class="nav-rg-zx">
+            <el-popover
+              trigger="hover"
+              popper-class="ct-rg-ct-pp"
+              placement="top"
+            >
+              <img src="https://balalaba.com/static/img/code.732047c8.png" alt="" width="140px">
+              <div slot="reference" :class="`ct-rg-i `">
+                <span style="    padding-top: 20px;    display: inline-block; ">
+                  <i class="iconerweima iconfont" ></i>
+                </span>
+              </div>
+  
+            </el-popover>
+  
+            <div class="zixunTitle" @click="jump">
+              <h3>贸管家跨境顾问</h3>
+              <h4>点击咨询<i class="iconjiantou iconfont" ></i></h4>
+            </div>
+          </div>
+          <!-- <el-dropdown style="margin-left: 30px;" @command="handleSwitchBizOwner">
+            <span class="el-dropdown-link">
+              {{ languageList[mineNum] }}<i class="el-icon-arrow-down el-icon--right" />
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="false">{{ languageList[0] }}</el-dropdown-item>
+              <el-dropdown-item command="true">{{ languageList[1] }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown> -->
+        </div>
+      </div>
+      <ul class="pc-hd-nav-ul">
+        <li
+          v-for="(nav_item, index) in tlt_data"
+          :key="index"
+          :class="`nav-item pointer nav-item${index}`"
+        >
+          <template v-if="index!=tlt_data.length-1">
+            <div v-if="nav_item.submenu" class="nav_item_name" @click="go(nav_item.router_path,index)">
+              <div class="nav_item_name-content" :class="{'add_nav_item_name':navTabIndex==index}">
+                {{ nav_item.name }}
+                <i class="iconxiala- iconfont" ></i>
+                <div class="nav_item_solid" :class="{'add_nav_item_solid':navTabIndex==index}" ></div>
+              </div>
+              <ul v-if="index==1" class="nav_item_name-proper" >
+                <li v-for="item in nav_item.submenu" :key="item.router_path" class="pointer" @click.stop="goTozion(item.router_path)">{{ item.label }}</li>
+                <p>专注搜索全球C端亿级大数据库</p>
+                <span class="arrow" ></span>
+              </ul>
+              <ul v-else class="nav_item_name-proper" >
+                <li v-for="item in nav_item.submenu" :key="item.router_path" class="pointer" @click.stop="goTozion(item.router_path)">{{ item.label }}</li>
+                <span class="arrow" ></span>
+              </ul>
+            </div>
+            <div v-else class="nav_item_name nav_item_name_click" :class="{'add_nav_item_name':navTabIndex==index}" @click.stop="goTozion(nav_item.router_path,index)">
+              {{ nav_item.name }}
+              <div class="nav_item_solid" :class="{'add_nav_item_solid':navTabIndex==index}" ></div>
+            </div>
+          </template>
+        </li>
+      </ul>
 </header>
 <article>
   <nav>
@@ -44,7 +102,7 @@ if(!defined('InEmpireCMS'))
     </div>
     <em></em> </nav>
   <div class="box_l">
-    <div class="weizhi"><a href="http://balalaba.historyhots.com/">首页</a>&nbsp; / &nbsp;<a href="http://balalaba.historyhots.com/about/">贸管家简介</a></div>
+    <div class="weizhi"><a href="http://balalaba.historyhots.com/">外贸平台</a>&nbsp; / &nbsp;<a href="http://balalaba.historyhots.com/about/">贸管家简介</a></div>
     <div class="con_tit">
       <h1>贸管家简介</h1>
     </div>
@@ -89,7 +147,7 @@ $bqsr=sys_ReturnEcmsLoopStext($bqr);
 $bqno++;
 ?>
 <?
-echo '<li><a href="'.$public_r[newsurl].'e/tags/?tagname='.urlencode($bqr['tagname']).'">'.$bqr['tagname'].'</a></li>';
+echo '<li><a href="'.$public_r[newsurl].'tag/'.urlencode($bqr['tagname']).'.html">'.$bqr['tagname'].'</a></li>';
 ?>
 <?php
 }

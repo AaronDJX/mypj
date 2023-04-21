@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/wm/2.html\" title=\"如何自己做外贸生意？\">如何自己做外贸生意？</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/wm/2.html\" title=\"如何自己做外贸生意？\">如何自己做外贸生意？</a></li><li><a href=\"http://balalaba.historyhots.com/wm/16.html\" title=\"如何开展外贸业务？外贸到底怎么做？\">如何开展外贸业务？外贸到底怎么做？</a></li>");

@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/client/7.html\" title=\"怎么在网站上找国外客户？\">怎么在网站上找国外客户？</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/client/7.html\" title=\"怎么在网站上找国外客户？\">怎么在网站上找国外客户？</a></li><li><a href=\"http://balalaba.historyhots.com/client/19.html\" title=\"如何找国外客户，寻找国外客户有哪些途径？\">如何找国外客户，寻找国外客户有哪些</a></li>");

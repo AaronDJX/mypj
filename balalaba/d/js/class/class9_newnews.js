@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/social/1.html\" title=\"WhatsApp短信息群发如何实现？\">WhatsApp短信息群发如何实现？</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/social/18.html\" title=\"怎么发短信广告给国外买家？\">怎么发短信广告给国外买家？</a></li><li><a href=\"http://balalaba.historyhots.com/social/1.html\" title=\"WhatsApp短信息群发如何实现？\">WhatsApp短信息群发如何实现？</a></li>");

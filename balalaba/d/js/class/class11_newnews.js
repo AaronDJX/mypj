@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/customs/8.html\" title=\"海关报关方式有哪些？需要注意什么？\">海关报关方式有哪些？需要注意什么？</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/customs/20.html\" title=\"出口商检怎么做？出口商检的具体流程？\">出口商检怎么做？出口商检的具体流程</a></li><li><a href=\"http://balalaba.historyhots.com/customs/8.html\" title=\"海关报关方式有哪些？需要注意什么？\">海关报关方式有哪些？需要注意什么？</a></li>");

@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/inquiry/3.html\" title=\"什么叫询盘？询盘要如何回复？\">什么叫询盘？询盘要如何回复？</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/inquiry/17.html\" title=\"什么是外贸询盘系统？有什么优势？\">什么是外贸询盘系统？有什么优势？</a></li><li><a href=\"http://balalaba.historyhots.com/inquiry/3.html\" title=\"什么叫询盘？询盘要如何回复？\">什么叫询盘？询盘要如何回复？</a></li>");

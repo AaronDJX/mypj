@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>怎么发短信广告给国外买家？_外贸智能营销SaaS平台-贸管家</title>
+<meta name="keywords" content="怎么发短信广告" />
+<meta name="description" content="虽然跨境电商在与国外买家进行交易时，通常会使用电子邮件EDM方式进行沟通，但有时仍然会遇到一些突发情况需要处理，这个时候就需要用到发短信广告给国外买家了。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../skin/html/css/base.css" rel="stylesheet">
+<link href="../skin/html/css/m.css" rel="stylesheet">
+<link href="../skin/html/css/swiper.min.css" rel="stylesheet">
+<script src="../skin/html/js/jquery-3.6.0.min.js" ></script>
+<script src="../skin/html/js/comm.js"></script>
+<link href="../skin/html/css/pc_header_nav.css" rel="stylesheet">
+<link href="../skin/html/css/iconfont.css" rel="stylesheet">
+<!--引入 element-ui 的样式，-->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 必须先引入vue， 后使用element-ui -->
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<!-- 引入element 的组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!---代码高亮-->
+<link href="../skin/html/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../skin/html/SyntaxHighlighter/shCore.js"></script>
+<script type="text/javascript">
+ SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+<header id="app" class="pc-header-nav ">
+    <div class="pc-hd-nav-ct">
+        <div class="nav-lf pointer">
+          <span @click="go('/')">贸管家</span>
+          <el-divider direction="vertical" ></el-divider>
+          <div class="nav-lf-tl">
+            <span>外贸智能营销SaaS平台</span>
+          </div>
+        </div>
+        <div class="nav-rg">
+          <div class="nav-rg-zx">
+            <el-popover
+              trigger="hover"
+              popper-class="ct-rg-ct-pp"
+              placement="top"
+            >
+              <img src="https://balalaba.com/static/img/code.732047c8.png" alt="" width="140px">
+              <div slot="reference" :class="`ct-rg-i `">
+                <span style="    padding-top: 20px;    display: inline-block; ">
+                  <i class="iconerweima iconfont" ></i>
+                </span>
+              </div>
+  
+            </el-popover>
+  
+            <div class="zixunTitle" @click="jump">
+              <h3>贸管家跨境顾问</h3>
+              <h4>点击咨询<i class="iconjiantou iconfont" ></i></h4>
+            </div>
+          </div>
+          <!-- <el-dropdown style="margin-left: 30px;" @command="handleSwitchBizOwner">
+            <span class="el-dropdown-link">
+              {{ languageList[mineNum] }}<i class="el-icon-arrow-down el-icon--right" />
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="false">{{ languageList[0] }}</el-dropdown-item>
+              <el-dropdown-item command="true">{{ languageList[1] }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown> -->
+        </div>
+      </div>
+      <ul class="pc-hd-nav-ul">
+        <li
+          v-for="(nav_item, index) in tlt_data"
+          :key="index"
+          :class="`nav-item pointer nav-item${index}`"
+        >
+          <template v-if="index!=tlt_data.length-1">
+            <div v-if="nav_item.submenu" class="nav_item_name" @click="go(nav_item.router_path,index)">
+              <div class="nav_item_name-content" :class="{'add_nav_item_name':navTabIndex==index}">
+                {{ nav_item.name }}
+                <i class="iconxiala- iconfont" ></i>
+                <div class="nav_item_solid" :class="{'add_nav_item_solid':navTabIndex==index}" ></div>
+              </div>
+              <ul v-if="index==1" class="nav_item_name-proper" >
+                <li v-for="item in nav_item.submenu" :key="item.router_path" class="pointer" @click.stop="goTozion(item.router_path)">{{ item.label }}</li>
+                <p>专注搜索全球C端亿级大数据库</p>
+                <span class="arrow" ></span>
+              </ul>
+              <ul v-else class="nav_item_name-proper" >
+                <li v-for="item in nav_item.submenu" :key="item.router_path" class="pointer" @click.stop="goTozion(item.router_path)">{{ item.label }}</li>
+                <span class="arrow" ></span>
+              </ul>
+            </div>
+            <div v-else class="nav_item_name nav_item_name_click" :class="{'add_nav_item_name':navTabIndex==index}" @click.stop="goTozion(nav_item.router_path,index)">
+              {{ nav_item.name }}
+              <div class="nav_item_solid" :class="{'add_nav_item_solid':navTabIndex==index}" ></div>
+            </div>
+          </template>
+        </li>
+      </ul>
+</header>
+<article>
+  <nav>
+    <div class="topnav">
+      <ul id="starlist">
+        <li><a href="http://balalaba.historyhots.com/">最新资讯</a></li>
+        <li><a href="http://balalaba.historyhots.com/tuijian/">推荐内容</a></li>
+        <li><a href="http://balalaba.historyhots.com/hot/">热门内容</a></li>
+<li><a href="http://balalaba.historyhots.com/wm/">外贸</a></li><li><a href="http://balalaba.historyhots.com/buy/">采购</a></li><li><a href="http://balalaba.historyhots.com/wen/">问答</a></li><li><a href="http://balalaba.historyhots.com/abroad/">跨境</a></li><li><a href="http://balalaba.historyhots.com/crm/">CRM</a></li><li><a href="http://balalaba.historyhots.com/inquiry/">询盘</a></li><li><a href="http://balalaba.historyhots.com/edm/">邮件</a></li><li><a href="http://balalaba.historyhots.com/social/">营销</a></li><li><a href="http://balalaba.historyhots.com/client/">客户</a></li><li><a href="http://balalaba.historyhots.com/customs/">海关</a></li> 
+      </ul>
+    </div>
+    <em></em> </nav>
+  <div class="box_l">
+    <div class="weizhi"><a href="http://balalaba.historyhots.com/">外贸平台</a>&nbsp; / &nbsp;<a href="http://balalaba.historyhots.com/social/">营销</a> / 怎么发短信广告给国外买家？</div>
+    <div class="con_tit">
+      <h1>怎么发短信广告给国外买家？</h1>
+      <div class="con_info"><span class="con_writer">fochier</span><span class="con_class">分类：<a href="http://balalaba.historyhots.com/social/" target="_blank">营销</a></span><span class="con_befrom">来源：贸管家</span> 
+        <time>2023-04-19 17:07:02</time>
+        <span class="con_link"><script src=http://balalaba.historyhots.com/e/public/ViewClick/?classid=9&id=18&addclick=1></script></span> </div>
+    </div>
+    <div class="content">
+<p>虽然跨境电商在与国外买家进行交易时，通常会使用<a href="https://www.balalaba.com/edm/" target="_blank">电子邮件EDM</a>方式进行沟通，但有时仍然会遇到一些突发情况需要处理，这个时候就需要用到发短信广告给国外买家了。例如在发货时发现买家没有标明尺码、颜色、款式等信息，但对方不在，或是在发送电子邮件后无人回应。在这种情况下，如果看到买家留下的手机号码，但担心国际长途电话费太贵或自己的英语不好，该如何应对呢？通过发短信广告就可以解决跨洋问题了。</p>
+<p>如果您是移动用户，无需申请即可使用国际短信业务。编辑好短信内容后，只需在发送号码处输入：国际代码（00） 国家代码 用户号码，即可发送国际短信。对于中国移动通信客户在中国境内发送短信到中国境外运营商客户，资费标准为1.00元/条。</p>
+<p>如果您是联通用户，不论是联通的GSM用户还是CDMA用户，都可以使用联通的短信国际互通业务，向包括港澳台地区在内的100个国家和地区的手机用户发送短信。使用联通的国际短信服务无需任何开通手续，只需按照00 国家代码 用户号码的格式填写发送号码即可。资费标准为0.8元/条，接收免费。</p>
+<p>如果您是电信用户，在国内发送国际互通短信（包括港澳台）的价格为0.80元/条，接收免费。电信用户可以通过手机拨打00 国家代码 对方手机号码的方式发送国际短信。对于国外用户发送给电信用户的短信，只需要在您的号码前加上中国的国际代码0086即可。</p>
+<p>最后，通过<a href="https://www.balalaba.com/whatsApp/" target="_blank">WhatsApp短信</a>向国外买家发送短信广告也是一种快捷、方便的联系方式。但要确保您遵循下面指南，以确保您的信息发送成功，并且可以得到有效的回复。</p>
+<p>1.确认国际区号： 您需要知道国际区号，以便正确输入买家的电话号码。例如，美国的国际区号是 1，英国的国际区号是 44等等。您可以通过互联网搜索以查找您所需国家的国际区号。</p>
+<p>2.添加买家号码：在输入买家号码时，请不要忘记添加国际区号。例如，如果您要向美国发送短信，则应在电话号码之前加上 1。</p>
+<p>3.确保使用正式语言： 在向国外买家发送信息时，请使用正式的、礼貌的语言。如果您不确定使用哪种语言，请先向买家询问他们使用的语言。</p>
+<p>4.确认时差： 请注意国际时差。如果您在发送信息时处于不同的时区，则请考虑适当的时间发送信息，以确保买家能够收到信息并能够及时回复。</p>    </div>
+<script>
+var paras = document.getElementsByTagName("pre");
+for ( var i=0;i<paras.length;i++ ) {
+    paras[i].setAttribute("class","brush:php;toolbar:false");     
+}
+</script>
+    <div class="con_tags"><a href='../tag/%E4%BF%A1%E6%81%AF%E8%90%A5%E9%94%80.html' target='_blank'>信息营销</a> </div>
+    <div class="info-pre-next">
+      <p>上一篇：<a href='http://balalaba.historyhots.com/social/1.html'>WhatsApp短信息群发如何实现？</a></p>
+      <p>下一篇：<a href='http://balalaba.historyhots.com/social/'>返回列表</a></p>
+    </div>
+    <div class="hot_news other_news">
+      <div class="side_title">
+        <h3>相关文章</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/social/18.html" title="怎么发短信广告给国外买家？">怎么发短信广告给国外买家？</a></li><li><a href="http://balalaba.historyhots.com/social/1.html" title="WhatsApp短信息群发如何实现？">WhatsApp短信息群发如何实现？</a></li>      </ul>
+    </div>
+    <div class="blog_list">
+      <div class="side_title">
+        <h3>猜你喜欢</h3>
+      </div>
+      <ul>
+
+
+<li><a href="http://balalaba.historyhots.com/edm/12.html" class="blog_more">
+          <h2>给海外客户发邮件开头怎么写？</h2>
+          <div class="ps"></div>
+          
+          <p>给海外客户发邮件开头应视具体情况而定，我们具体先来看看一个应用实例</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/edm/" target="_blank">邮件</a></span><span class="info_time">2023-04-19</span><span class="info_view">1399</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/customs/20.html" class="blog_more">
+          <h2>出口商检怎么做？出口商检的具体流程？</h2>
+          <div class="ps"></div>
+          
+          <p>商检是出口最基本的程序，各个国家都要进行商检。出口商检程序比较复杂，需要进行抽样、检验和签发证书等。需要注意的是，不同国家和地区的商检程序可能会有所不同，进行出口商检需要非常谨慎和认真，遵守相关法规和标准，确保出口商品的质量和安全性，并严格按照商检要求进行操作。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/customs/" target="_blank">海关</a></span><span class="info_time">2023-04-19</span><span class="info_view">1743</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wen/15.html" class="blog_more">
+          <h2>做外贸业务，没有客户询盘怎么办？</h2>
+          <div class="ps"></div>
+          
+          <p>做外贸业务，如何没有客户询盘，那么可以通过寻找潜客，自主学习、优化产品信息、扩大销售渠道deng方式来提升客户询盘。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wen/" target="_blank">问答</a></span><span class="info_time">2023-04-18</span><span class="info_view">625</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/client/7.html" class="blog_more">
+          <h2>怎么在网站上找国外客户？</h2>
+          <div class="ps"></div>
+          
+          <p>如果想在网站上找到国外客户，以下是一些方法：优化您的网站SEO：确保您的网站能够被搜索引擎检索到，并且在搜索结果中排名靠前。优化SEO可以帮助您的网站吸引更多的流量，并提高您与潜在客户的曝光率。使用社交媒体：利用社交媒体平台如Twitter, LinkedIn, Facebook等，发布有关您的产品和服务的信息和内容，以吸引潜在客户。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/client/" target="_blank">客户</a></span><span class="info_time">2023-04-14</span><span class="info_view">19</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/wen/4.html" class="blog_more">
+          <h2>海外客户给供应商的采购订单量少怎么办？达不到起订量</h2>
+          <div class="ps"><span class="ps_tj">推荐</span><span class="ps_yc">原创</span></div>
+           <i><img src="/d/file/p/2023/03-23/smallbe1f74a105679c41ce1a12ed9e8cee691679550511.png" alt="海外客户给供应商的采购订单量少怎么办？达不到起订量"></i>
+          <p>当海外客户给供应商的采购订单量远少于起订量时，这可能会对供应商造成一定的困扰。以下是几种可能出现的情况及其解决方案</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/wen/" target="_blank">问答</a></span><span class="info_time">2023-04-14</span><span class="info_view">19</span></div>
+</li>
+
+
+<li><a href="http://balalaba.historyhots.com/abroad/5.html" class="blog_more">
+          <h2>跨境电商中fba是什么意思？</h2>
+          <div class="ps"><span class="ps_tj">推荐</span></div>
+          
+          <p>跨境电商中FBA是亚马逊提供的一项服务，也就是“Fulfillment by Amazon”，即亚马逊配送服务。对于跨境电商来说，FBA可以提供一系列的服务，如存储、包装、发货、客服等。供应商将商品运输到亚马逊的仓库，然后由亚马逊进行存储和管理。</p>
+          </a>
+          <div class="info"> <span class="info_class"><a href="http://balalaba.historyhots.com/abroad/" target="_blank">跨境</a></span><span class="info_time">2023-04-14</span><span class="info_view">33</span></div>
+</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box_r">
+    <div class="hot_news">
+      <div class="side_title">
+        <h3>最近文章</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/social/18.html" target="_blank">
+          <p>怎么发短信广告给国外买家？</p>
+          </a><span>1352</span></li>
+        <li><a href="http://balalaba.historyhots.com/social/1.html" target="_blank">
+          <p>WhatsApp短信息群发如何实现？</p>
+          </a><span>48</span></li>
+      </ul>
+    </div>
+    <div class="tags">
+      <div class="side_title"><a href="http://balalaba.historyhots.com/tags.html">更多</a>
+        <h3>热门标签</h3>
+      </div>
+      <ul>
+<li><a href="http://balalaba.historyhots.com/tag/%E5%A4%96%E8%B4%B8%E6%8A%80%E5%B7%A7.html">外贸技巧</a></li><li><a href="http://balalaba.historyhots.com/tag/%E5%AE%A2%E6%88%B7%E8%AF%A2%E7%9B%98.html">客户询盘</a></li><li><a href="http://balalaba.historyhots.com/tag/EDM%E9%82%AE%E4%BB%B6%E8%90%A5%E9%94%80.html">EDM邮件营销</a></li><li><a href="http://balalaba.historyhots.com/tag/%E6%B5%B7%E5%85%B3%E6%8A%A5%E5%85%B3.html">海关报关</a></li><li><a href="http://balalaba.historyhots.com/tag/%E5%9B%BD%E5%A4%96%E5%AE%A2%E6%88%B7.html">国外客户</a></li><li><a href="http://balalaba.historyhots.com/tag/%E4%BF%A1%E6%81%AF%E8%90%A5%E9%94%80.html">信息营销</a></li><li><a href="http://balalaba.historyhots.com/tag/CRM%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html">CRM客户管理系统</a></li><li><a href="http://balalaba.historyhots.com/tag/%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86.html">跨境电商</a></li><li><a href="http://balalaba.historyhots.com/tag/%E9%87%87%E8%B4%AD%E8%AE%A2%E5%8D%95.html">采购订单</a></li><li><a href="http://balalaba.historyhots.com/tag/%E5%85%A8%E7%90%83%E9%87%87%E8%B4%AD%E4%BF%A1%E6%81%AF.html">全球采购信息</a></li>      </ul>
+    </div>
+    <div class="tj_news">
+      <div class="side_title">
+        <h3>站长推荐</h3>
+      </div>
+      <ul>
+        <li><a href="http://balalaba.historyhots.com/social/1.html" target="_blank">
+          <p>WhatsApp短信息群发如何实现？</p>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="box">
+    <div class="copyright">
+      <p>Copyright © 贸管家，外贸智能营销SaaS平台 Design by <a href="/" target="_blank">贸管家</a></p>
+      <p>备案号 <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">沪ICP备17029932号-1</a> ｜ 上海钰祺网络科技有限公司｜上海市徐汇区桂平路410号孵化中心B区111室</p>
+    </div>
+  </div>
+</footer>
+<div class="side_nav">
+  <ul>
+    <li><a href="http://balalaba.historyhots.com/about" title="关于贸管家"><i class="icon_ab"><img src="http://balalaba.historyhots.com/skin/html/images/ft_about.png" alt=""></i> </a></li>
+    <li><a title="每日询盘"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_qq.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/qq.png" alt="qq"></span> </a></li>	
+    <li><a title="免费试用"><i class="icon_wx"><img src="http://balalaba.historyhots.com/skin/html/images/ft_ewm.png" alt=""></i><span><img src="http://balalaba.historyhots.com/skin/html/images/wx.png" alt="微信"></span> </a></li>
+    <li><a href="#" class="icon-top" title="返回顶部"><i class="icon_fh"><img src="http://balalaba.historyhots.com/skin/html/images/ft_top.png" alt=""></i> </a></li>
+  </ul>
+</div><script src="http://balalaba.historyhots.com/e/public/onclick/?enews=donews&classid=9&id=18"></script><script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { 
+            navTabName: [
+        {
+          name: 'Home',
+          index: 0
+        },
+        {
+          name: 'B2c',
+          index: 1
+        },
+        {
+          name: 'Social',
+          index: 2
+        },
+        {
+          name: 'B2b',
+          index: 3
+        },
+        {
+          name: 'Trade',
+          index: 4
+        },
+        {
+          name: 'Members',
+          index: 5
+        },
+        {
+          name: 'About',
+          index: 6
+        }
+      ],
+      languageList: ['EN', 'CN'], // 语种
+      mineNum: 1, // 语言切换
+      navTabIndex: 0,
+      tlt_data: [
+        {
+          name: '首页',
+          router_path: 'https://balalaba.com/'
+        },
+        {
+          name: '选品工具',
+          router_path: 'https://balalaba.com/b2c',
+          navItem: 2,
+          submenu: [
+            {
+              i_class: 'iconfont iconquanqiu',
+              label: '亚马逊选品',
+              router_path: 'https://balalaba.com/mgj'
+            }
+          ]
+        },
+        {
+          name: '跨境社交',
+          router_path: 'https://balalaba.com/socialContact',
+          navItem: 3,
+          submenu: [
+            {
+              i_class: 'iconfont iconyoujian2',
+              label: 'EDM',
+              router_path: 'https://balalaba.com/edm/new'
+            },
+            {
+              i_class: 'iconfont iconyoujian2',
+              label: 'WhatsApp',
+              router_path: 'https://balalaba.com/whatsApp/list'
+            },
+            {
+              i_class: 'iconfont iconweibiaoti-icon-',
+              label: '社媒获客',
+              router_path: 'https://balalaba.com/facebook/inquiry'
+            }
+          ]
+        },
+        {
+          name: '跨境B2B',
+          router_path: 'https://balalaba.com/b2b',
+          submenu: [
+            {
+              i_class: 'iconfont iconchakanxunpan ',
+              label: '采购询盘',
+              router_path: 'https://balalaba.com/inquiry'
+            },
+            {
+              i_class: 'iconfont iconquanqiu',
+              label: '全球采购商',
+              router_path: 'https://balalaba.com/merchants'
+            },
+            {
+              i_class: 'iconfont iconkehuguanli1',
+              label: 'CRM',
+              router_path: 'https://balalaba.com/crm/customer/pool'
+            }
+          ]
+        },
+        {
+          name: '外贸学院',
+          router_path: 'https://balalaba.com/tradeList'
+        },
+        {
+          name: '会员服务',
+          router_path: 'https://balalaba.com/membersList'
+        },
+        {
+          name: '关于公司',
+          router_path: 'https://balalaba.com/about'
+        },
+        {
+          name: '登录/注册',
+          router_path: '/signin'
+        }
+
+      ],
+      token: localStorage.getItem('userName'),
+      user_id: localStorage.getItem('userName')
+        }
+      },
+      methods: {
+    // 跳转zion网站方法
+    goTozion(val, index) {
+        window.open(val)
+    },
+    // 导航公共跳转方法
+    go(val, index) {
+      console.log(val)
+      window.location.href = val
+      // val === '/signin' ? this.$router.push({ path: val, query: { redirect: this.$router.currentRoute.fullPath }}) : this.$router.push({ path: val })
+    },
+    jumpBasicInfo() {
+      window.open('https://www.balalaba.com/basicInfo/members')
+    },
+    loginOut() {
+      this.$store.dispatch('user/logout').then(res => {
+        this.user_id = ''
+      }).catch(() => {
+
+      })
+    },
+    setNavTabIndex() {
+      console.log(this.$route)
+      const obj = this.navTabName.find(item => item && item.name === this.$route.matched[0].name)
+      console.log(obj)
+      this.navTabIndex = obj ? obj.index : obj
+      if (this.$route.matched[0].name == 'Home') {
+        this.navTabIndex = 0
+      }
+    },
+    jump() {
+      window.open('https://tb.53kf.com/code/client/fe01f9a9c8a0ae0cb1aaf69b35c55a0e0/1')
+    }
+  }
+    })
+  </script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5f3a4810ac55ee2cef0a63b99cfd1ae7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSQZ2673NV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSQZ2673NV');
+</script>
+
+</body>
+</html>
