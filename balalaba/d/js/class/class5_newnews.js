@@ -1,1 +1,1 @@
-document.write("<li><a href=\"http://balalaba.historyhots.com/crm/10.html\" title=\"海外获客crm平台好用吗？有哪些平台可以推荐？\">海外获客crm平台好用吗？有哪些平台</a></li>");
+document.write("<li><a href=\"http://balalaba.historyhots.com/crm/10.html\" title=\"海外获客crm平台好用吗？有哪些平台可以推荐？\">海外获客crm平台好用吗？有哪些平台</a></li><li><a href=\"http://balalaba.historyhots.com/crm/13.html\" title=\"有没有做外贸好用的免费crm推荐\">有没有做外贸好用的免费crm推荐</a></li>");
